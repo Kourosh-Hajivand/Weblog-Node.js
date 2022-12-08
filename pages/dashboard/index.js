@@ -1,23 +1,25 @@
 import Link from "next/link";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AddPost } from "../../Slicer/Counterslicer";
 
 function Dashboard() {
   const [titel, setTitel] = useState("");
   const [content, setcontent] = useState("");
-  const dispatch = useDispatch();
-
   const changetitel = (e) => {
-    console.log(e.target.value);
     setTitel(e.target.value);
   };
   const changecontetn = (e) => {
     setcontent(e.target.value);
   };
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
-    dispatch(AddPost({ title: titel, Content: content }));
+    const reqdata = { titel, content };
+    await fetch("api/post", {
+      method: "POST",
+      body: JSON.stringify(reqdata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     setTitel("");
     setcontent("");
   };
