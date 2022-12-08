@@ -30,7 +30,7 @@ export default function Home() {
       <div className="flex flex-col gap-5 max-h-[500px] mt-10 ">
         <div
           onClick={syncdata}
-          className="bg-neutral-400  w-1/5 p-2 rounded text-white flex items-center justify-center duration-300 select-none hover:bg-neutral-600"
+          className="bg-neutral-400  w-1/5 min-w-[150px] p-2 rounded text-white flex items-center justify-center duration-300 select-none hover:bg-neutral-600"
         >
           <AiOutlineSync className="text-xl mr-2" /> Sync Data
         </div>
