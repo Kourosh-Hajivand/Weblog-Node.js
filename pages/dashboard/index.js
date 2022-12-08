@@ -13,7 +13,7 @@ function Dashboard() {
   const formHandler = async (e) => {
     e.preventDefault();
     const reqdata = { titel, content };
-    await fetch("api/post", {
+    await fetch("https://weblog-redux.vercel.app/api/post", {
       method: "POST",
       body: JSON.stringify(reqdata),
       headers: {
